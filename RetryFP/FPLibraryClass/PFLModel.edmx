@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PFLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="P&amp;FL Fishing">
+          <Key>
+            <PropertyRef Name="Item ID" />
+          </Key>
+          <Property Name="Item ID" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="Product Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Small Description" Type="varchar(max)" Nullable="false" />
+          <Property Name="Rating" Type="char" MaxLength="10" />
+          <Property Name="Price" Type="smallmoney" Nullable="false" />
+          <Property Name="Stock Number" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="P&amp;FL Paper">
+          <Key>
+            <PropertyRef Name="ItemIDPaper" />
+          </Key>
+          <Property Name="ItemIDPaper" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Product Name Paper" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Small Description Paper" Type="varchar(max)" Nullable="false" />
+          <Property Name="Rating Paper" Type="char" MaxLength="10" />
+          <Property Name="Price Paper" Type="smallmoney" Nullable="false" />
+          <Property Name="Stock Number Paper" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityContainer Name="PFLModelStoreContainer">
+          <EntitySet Name="P&amp;FL Fishing" EntityType="Self.P&amp;FL Fishing" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="P&amp;FL Paper" EntityType="Self.P&amp;FL Paper" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PFLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="P_FL_Fishing">
+          <Key>
+            <PropertyRef Name="Item_ID" />
+          </Key>
+          <Property Name="Item_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Product_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Small_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rating" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="Stock_Number" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="P_FL_Paper">
+          <Key>
+            <PropertyRef Name="ItemIDPaper" />
+          </Key>
+          <Property Name="ItemIDPaper" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Product_Name_Paper" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Small_Description_Paper" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rating_Paper" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Price_Paper" Type="Decimal" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="Stock_Number_Paper" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="Papers_and_fishing_luresEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="P_FL_Fishing" EntityType="Self.P_FL_Fishing" />
+          <EntitySet Name="P_FL_Paper" EntityType="Self.P_FL_Paper" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PFLModelStoreContainer" CdmEntityContainer="Papers_and_fishing_luresEntities">
+          <EntitySetMapping Name="P_FL_Fishing">
+            <EntityTypeMapping TypeName="PFLModel.P_FL_Fishing">
+              <MappingFragment StoreEntitySet="P&amp;FL Fishing">
+                <ScalarProperty Name="Item_ID" ColumnName="Item ID" />
+                <ScalarProperty Name="Product_Name" ColumnName="Product Name" />
+                <ScalarProperty Name="Small_Description" ColumnName="Small Description" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Stock_Number" ColumnName="Stock Number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="P_FL_Paper">
+            <EntityTypeMapping TypeName="PFLModel.P_FL_Paper">
+              <MappingFragment StoreEntitySet="P&amp;FL Paper">
+                <ScalarProperty Name="ItemIDPaper" ColumnName="ItemIDPaper" />
+                <ScalarProperty Name="Product_Name_Paper" ColumnName="Product Name Paper" />
+                <ScalarProperty Name="Small_Description_Paper" ColumnName="Small Description Paper" />
+                <ScalarProperty Name="Rating_Paper" ColumnName="Rating Paper" />
+                <ScalarProperty Name="Price_Paper" ColumnName="Price Paper" />
+                <ScalarProperty Name="Stock_Number_Paper" ColumnName="Stock Number Paper" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

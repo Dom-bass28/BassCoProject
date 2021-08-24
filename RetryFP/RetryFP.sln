@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31613.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetryFP", "RetryFP\RetryFP.csproj", "{4C69A82A-61F3-4411-938A-6E32D4FCF83C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FPLibraryClass", "FPLibraryClass\FPLibraryClass.csproj", "{92834F3B-8F8C-4070-8BF7-1BAC59D01955}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C69A82A-61F3-4411-938A-6E32D4FCF83C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C69A82A-61F3-4411-938A-6E32D4FCF83C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C69A82A-61F3-4411-938A-6E32D4FCF83C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C69A82A-61F3-4411-938A-6E32D4FCF83C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92834F3B-8F8C-4070-8BF7-1BAC59D01955}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92834F3B-8F8C-4070-8BF7-1BAC59D01955}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92834F3B-8F8C-4070-8BF7-1BAC59D01955}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92834F3B-8F8C-4070-8BF7-1BAC59D01955}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8E138078-A27C-4E37-827F-073D1093FEA0}
+	EndGlobalSection
+EndGlobal

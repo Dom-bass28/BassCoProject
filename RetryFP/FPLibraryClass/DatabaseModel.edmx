@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BassCoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CustomerInfoTable">
+          <Key>
+            <PropertyRef Name="Customer ID" />
+          </Key>
+          <Property Name="Customer ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Customer Firrst Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Customer Last Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Customer Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductInfoTable">
+          <Key>
+            <PropertyRef Name="Item  ID" />
+          </Key>
+          <Property Name="Item  ID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Product Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Small Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Rating" Type="nchar" MaxLength="10" />
+          <Property Name="Price" Type="smallmoney" Nullable="false" />
+          <Property Name="Stock Amount" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityContainer Name="BassCoModelStoreContainer">
+          <EntitySet Name="CustomerInfoTable" EntityType="Self.CustomerInfoTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductInfoTable" EntityType="Self.ProductInfoTable" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BassCoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CustomerInfoTable">
+          <Key>
+            <PropertyRef Name="Customer_ID" />
+          </Key>
+          <Property Name="Customer_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Customer_Firrst_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Customer_Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Customer_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductInfoTable">
+          <Key>
+            <PropertyRef Name="Item__ID" />
+          </Key>
+          <Property Name="Item__ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Product_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Small_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Rating" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="Stock_Amount" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="BassCoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CustomerInfoTables" EntityType="Self.CustomerInfoTable" />
+          <EntitySet Name="ProductInfoTables" EntityType="Self.ProductInfoTable" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BassCoModelStoreContainer" CdmEntityContainer="BassCoEntities">
+          <EntitySetMapping Name="CustomerInfoTables">
+            <EntityTypeMapping TypeName="BassCoModel.CustomerInfoTable">
+              <MappingFragment StoreEntitySet="CustomerInfoTable">
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer ID" />
+                <ScalarProperty Name="Customer_Firrst_Name" ColumnName="Customer Firrst Name" />
+                <ScalarProperty Name="Customer_Last_Name" ColumnName="Customer Last Name" />
+                <ScalarProperty Name="Customer_Password" ColumnName="Customer Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductInfoTables">
+            <EntityTypeMapping TypeName="BassCoModel.ProductInfoTable">
+              <MappingFragment StoreEntitySet="ProductInfoTable">
+                <ScalarProperty Name="Item__ID" ColumnName="Item  ID" />
+                <ScalarProperty Name="Product_Name" ColumnName="Product Name" />
+                <ScalarProperty Name="Small_Description" ColumnName="Small Description" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Stock_Amount" ColumnName="Stock Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
